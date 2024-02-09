@@ -1,0 +1,322 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jan 16, 2024, 1:35:20 PM
+    Author     : wwwsa
+*/
+
+.modern-pane {
+    -fx-border-width: 1px;
+    -fx-border-color: #ddd;
+    -fx-background-color: #f5f5f5; /* Light grey, close to white */
+
+    /* Add a 2px shadow */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 2, 0, 0, 0);
+
+    /* Transition effect for smoother color change on hover */
+    -fx-background-insets: 0, 0;
+    -fx-background-radius: 8;
+    -fx-padding: 0;
+}
+
+.modern-pane:hover {
+    -fx-background-color: #fff; /* White on hover */
+}
+.modern-button {
+    -fx-background-color: #666; /* Dark grey background color */
+    -fx-text-fill: #fff; /* Text color */
+    -fx-padding: 10 15; /* Adjust padding as needed */
+    -fx-font-size: 14px; /* Adjust font size as needed */
+    -fx-border-radius: 0; /* Adjust border radius as needed */
+    -fx-background-radius: 0; /* Adjust background radius as needed */
+    -fx-cursor: hand; /* Show hand cursor on hover */
+}
+
+.modern-button:hover {
+    -fx-background-color: #555; /* Darker grey on hover */
+}
+.icon_con{
+    -fx-background-color: #ffffff;
+}
+#leftSidePanel{
+    -fx-background-color: #666;
+}
+
+
+.tabButton {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 5 0;
+    
+}
+
+.tabButton:pressed {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 5 0;
+    -fx-text-fill: red;
+}
+.tabButton:pressed {
+    -fx-border-color: red;
+}
+.tabButton:hover:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 255, 0.5), 10, 0, 0, 0);
+}
+
+
+
+.text-field {
+    /* Background color */
+    -fx-border-color: #bdc3c7;       /* Border color */
+    -fx-border-width: 1.5px;            /* Border width */
+    -fx-border-radius: 5px;           /* Border radius */
+    -fx-padding: 8px;                 /* Padding */
+    -fx-font-size: 14px;              /* Font size */
+    -fx-text-fill: #333333;           /* Text color */
+}
+
+.text-field:focused {
+    -fx-border-color: #3498db;
+    -fx-border-width: 2px;/* Border color on focus */
+    -fx-background-color: #fff;      /* Background color on focus */
+}
+/* ModernButton.css */
+
+.button2 {
+    -fx-background-color: transparent;  /* Transparent background */
+    -fx-border-color: transparent;      /* Transparent border color */
+    -fx-border-width: 0;                /* No border width */
+    -fx-text-fill: #3498db;             /* Default text color (light blue) */
+    -fx-font-size: 20px;                /* Font size */
+}
+
+.button2:hover {
+    -fx-text-fill: #2980b9; 
+    -fx-font-size: 16px;/* Text color on hover (slightly darker blue) */
+}
+
+.button2:focused {
+    -fx-border-color: transparent;      /* No border on focus */
+    -fx-text-fill: #2c3e50;             /* Text color on focus (dark blue) */
+    -fx-background-color: transparent;  /* No background on focus */
+}
+
+.button2:pressed {
+    -fx-text-fill: #1f618d;             /* Text color on button press (even darker blue) */
+}
+.background{
+    -fx-background-color: white; 
+}
+
+.split-menu-button > .label{
+    -fx-background-color: #ecf0f1; /* Background color of the button */
+    -fx-text-fill: black; /* Text color of the button */
+}
+
+.split-menu-button > .arrow-button {
+    -fx-background-color: #ecf0f1; /* Background color of the arrow button */
+    -fx-text-fill: #ffffff; /* Text color of the arrow button */
+}
+
+.split-menu-button > .menu-item {
+    -fx-background-color: #ecf0f1; /* Background color of the menu items */
+    -fx-text-fill: #ffffff; /* Text color of the menu items */
+}
+
+.split-menu-button > .menu-item:hover {
+    -fx-background-color: #2980b9; /* Background color of the menu items on hover */
+}
+.tab-pane > .tab-header-area {
+    visibility: hidden;
+    max-height: 0;
+    min-height: 0;
+}
+.icon-buttons{
+     -fx-background-color: #b0adac; /* Dark Navy Color */
+     -fx-border-radius: 5px; /* Border Radius (optional) */
+     -fx-background-radius: 5px;
+}
+
+.icon-buttons:hover{
+    -fx-background-color: #8a8887;
+}
+
+
+.button3 {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: .5 .5 5 .5;
+    
+}
+
+.button3:pressed {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: .5 .5 5 .5;
+    -fx-text-fill: blue;
+}
+.button3:pressed {
+    -fx-border-color: blue;
+}
+.button3:hover:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 255, 0.3), 10, 0, 0, 0);
+}
+
+.pane2 {
+    -fx-border-width: 1px;
+    -fx-border-color: #ddd;
+    -fx-background-color: white; /* Light grey, close to white */
+
+    /* Add a 2px shadow */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 2, 0, 0, 0);
+
+    
+}
+.text-area {
+    -fx-background-color: #ecf0f1;   /* Background color */
+    -fx-border-color: #bdc3c7;       /* Border color */
+    -fx-border-width: 2px;            /* Border width */
+    -fx-border-radius: 5px;           /* Border radius */                 /* Padding */
+    -fx-font-size: 14px;              /* Font size */
+    -fx-text-fill: #333333;           /* Text color */
+}
+
+.text-area:focused {
+    -fx-border-color: #3498db;       /* Border color on focus */
+    -fx-background-color: #fff;      /* Background color on focus */
+}
+#circleAdd{
+    -fx-text-fill: white;
+    -fx-background-color:#bdbdbd;
+}
+
+#saveButton1{
+    -fx-text-fill: white;
+    -fx-background-color: #3498db;
+    -fx-background-radius: 10px;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-font-size: 14px;
+    -fx-border-color: #3498db;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 255, 0.3), 5, 0, 0, 0);
+}
+#saveButton1:hover:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 255, 0.3), 15, 0, 0, 5);
+}
+
+#saveNewButton1{
+    -fx-text-fill: #3498db;
+    -fx-background-color: white;
+    -fx-border-width: 2px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-font-size: 14px;
+    -fx-border-color: #3498db;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 255, 0.3), 5, 0, 0, 0);
+    
+}
+
+#saveNewButton1:hover:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 255, 0.3), 15, 0, 0, 5);
+}
+
+#enableButton{ 
+    -fx-background-color: transparent;  /* Transparent background */
+    -fx-border-color: transparent;      /* Transparent border color */
+    -fx-border-width: 0;                /* No border width */
+    -fx-text-fill: #3498db;             /* Default text color (light blue) */
+                /* Font size */
+}
+.limitButton{
+    -fx-background-color: transparent;  /* Transparent background */
+    -fx-border-color: transparent;      /* Transparent border color */
+    -fx-border-width: 0;                /* No border width */
+    -fx-text-fill: #3498db;
+}
+
+#toggleBtn{
+    -fx-background-color: #bbddff;  /* Transparent background */
+    -fx-border-color: #bbddff;      /* Transparent border color */
+    -fx-border-width: 1;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;/* No border width */
+}
+
+.checkbox {
+    -fx-padding: 0.7em;
+}
+
+.checkbox-box {
+    -fx-background-color: #ffffff; /* Background color of the checkbox */
+    -fx-border-color: #000000; /* Border color of the checkbox */
+    -fx-shape: "M0,0 L1,0 L1,1 L0,1 Z"; /* Shape of the checkbox */
+}
+
+.checkbox:hover .checkbox-box {
+    -fx-background-color: #e0e0e0; /* Background color on hover */
+}
+
+.checkbox:selected .checkbox-box {
+    -fx-background-color: #a0a0a0; /* Background color when selected */
+    -fx-border-color: #000000; /* Border color when selected */
+}
+
+.checkbox:selected:hover .checkbox-box {
+    -fx-background-color: #c0c0c0; /* Background color when selected and hovered */
+}
+
+
+.prompt-label {
+    -fx-text-fill: gray;
+    /*visibility: hidden;*/
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, white, 15, 0, 0, 0);
+    -fx-font-size: 13px;
+}
+.prompt-label:hover {
+    cursor: text;
+}
+
+.text-field-focused .prompt-label,
+.text-field-nonempty .prompt-label {
+    visibility: visible;
+    
+}
+
+.cat-label {
+    -fx-text-fill: #b2b2b2;
+    /*visibility: hidden;*/
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, white, 15, 0, 0, 0);
+    -fx-font-size: 16px;
+}
+.no-arrow-button .arrow-button {
+    -fx-padding: 0; /* Set padding to 0 to hide the button */
+    -fx-background-color: transparent; /* Set background color to transparent */
+}
+
+.no-arrow-button .arrow {
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+}
+
+.no-arrow-button .arrow-button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}
+
+.no-arrow-button .arrow-button > .arrow {
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+}
+
+.no-arrow-button .arrow-button .arrow-button-box {
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+.tab-pane2> .tab-header-area{
+    visibility: visible;
+}

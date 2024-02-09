@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="addCustomerPane" maxHeight="650.0" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" styleClass="pane2" stylesheets="@../looks.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.CustomerAddController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="ALWAYS" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints vgrow="NEVER" />
+    <RowConstraints vgrow="ALWAYS" />
+    <RowConstraints vgrow="NEVER" />
+  </rowConstraints>
+   <children>
+      <HBox maxHeight="50.0" maxWidth="800.0" prefHeight="50.0" prefWidth="800.0" style="-fx-border-width: 0 0 .5 0; -fx-border-color: #bdbdbd;">
+         <children>
+            <Label fx:id="addcustomer" prefHeight="41.0" prefWidth="200.0" text="Add Customer">
+               <font>
+                  <Font name="Segoe UI Semibold" size="28.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="3.0" left="7.0" right="3.0" top="3.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="ID" maxWidth="0.0" visible="false" />
+            <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" spacing="20.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="closeButton" onMouseClicked="#closeOverlay">
+                     <graphic>
+                        <FontAwesomeIconView size="28" text="" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="4.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="settingButton" onMouseClicked="#openSetting" HBox.hgrow="NEVER">
+                     <graphic>
+                        <FontAwesomeIconView fill="#8e8e8e" size="24" text="" />
+                     </graphic>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="14.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+         <GridPane.margin>
+            <Insets bottom="4.0" left="14.0" right="14.0" top="10.0" />
+         </GridPane.margin>
+      </HBox>
+      <VBox maxHeight="550.0" maxWidth="800.0" prefHeight="550.0" prefWidth="800.0" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </GridPane.margin>
+         <children>
+            <HBox alignment="CENTER_LEFT" prefWidth="794.0" spacing="40.0" VBox.vgrow="NEVER">
+               <children>
+                  <TextField fx:id="partyName" onMouseClicked="#isselected" onMouseExited="#fetchCustomer" prefHeight="34.0" prefWidth="200.0" promptText="Customer name*">
+                     <font>
+                        <Font name="Segoe UI" size="11.773585319519043" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="phoneNumber" onMouseClicked="#isselected" onMouseExited="#validphonenumber" prefHeight="34.0" prefWidth="200.0" promptText="Phone Number">
+                     <font>
+                        <Font name="Segoe UI" size="11.773585319519043" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="20.0" style="-fx-border-color: #bdbdbd; -fx-border-width: 0 0 .5 0;" VBox.vgrow="NEVER">
+               <children>
+                  <Button fx:id="addressTab" mnemonicParsing="false" onAction="#switchAddress" styleClass="button3" text="Address" textFill="#bdbdbd" HBox.hgrow="NEVER">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="personalTab" mnemonicParsing="false" onAction="#switchPersonal" styleClass="button3" text="Personal informtion" textFill="#bdbdbd">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="creditTab" mnemonicParsing="false" onAction="#switchCredit" styleClass="button3" text="Credit &amp; Balance" textFill="#bdbdbd" HBox.hgrow="NEVER">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="extraTab" mnemonicParsing="false" onAction="#switchExtra" styleClass="button3" text="Additional Fields" textFill="#bdbdbd" HBox.hgrow="NEVER">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="14.0" right="14.0" />
+               </VBox.margin>
+            </HBox>
+            <TabPane fx:id="fieldTabs" prefHeight="200.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+              <tabs>
+                <Tab fx:id="address" text="address">
+                     <content>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="NEVER" maxWidth="420.5660252311385" minWidth="10.0" prefWidth="227.22644005487243" />
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="536.9622667637876" minWidth="10.0" prefWidth="536.9622667637876" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="219.98114507993645" minHeight="10.0" prefHeight="147.90567885738727" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="256.71698396763543" minHeight="10.0" prefHeight="71.83017789108052" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="256.71698396763543" minHeight="10.0" prefHeight="163.9245346791809" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <padding>
+                              <Insets left="14.0" right="14.0" top="6.0" />
+                           </padding>
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="6.0" style="-fx-border-color: #bdbdbd; -fx-border-width: 0 1 0 0;" GridPane.rowSpan="2">
+                                 <children>
+                                    <TextField fx:id="emailId" onMouseClicked="#isselected" prefHeight="43.0" prefWidth="176.0" promptText="Email ID">
+                                       <font>
+                                          <Font name="Segoe UI" size="11.773585319519043" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="customerCode" onMouseClicked="#isselected" promptText="Customer code" VBox.vgrow="NEVER">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                              <HBox alignment="CENTER" prefHeight="172.0" prefWidth="527.0" spacing="1.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <TextArea fx:id="billAddress" prefHeight="180.0" prefWidth="250.0" promptText="Billing Address">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </TextArea>
+                                    <Pane fx:id="bar" maxHeight="1.0" minHeight="1.0" prefHeight="1.0" style="-fx-background-color: #bdbdbd;" HBox.hgrow="ALWAYS" />
+                                    <TextArea fx:id="shipAddress" prefHeight="180.0" prefWidth="250.0" promptText="Shipping Address">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </TextArea>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="533.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <Button id="enableButton" fx:id="switchShipAdd" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#switchTextArea" prefHeight="43.0" prefWidth="265.0" style="-fx-font-size: 16;" text="+ Enable Shipping Address">
+                                       <HBox.margin>
+                                          <Insets top="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Segoe UI" size="16.0" />
+                                       </font>
+                                    </Button>
+                                    <HBox alignment="TOP_RIGHT" prefHeight="84.0" prefWidth="228.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Button id="circleAdd" fx:id="addButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 20;" styleClass="modern-button" text="Add">
+                                             <HBox.margin>
+                                                <Insets top="7.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </HBox>
+                              <Label fx:id="promptLabel11" styleClass="prompt-label" textFill="#bdbdbd" translateX="20.0" translateY="-75.0">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="promptLabel12" styleClass="prompt-label" textFill="#bdbdbd" translateX="20.0" translateY="-19.0">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="promptLabel13" styleClass="prompt-label" textFill="#bdbdbd" translateX="25.0" translateY="-75.0" GridPane.columnIndex="1">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="promptLabel14" styleClass="prompt-label" textFill="#bdbdbd" translateX="300.0" translateY="-75.0" GridPane.columnIndex="1">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </content></Tab>
+                  <Tab fx:id="personal" text="personalinfo">
+                     <content>
+                        <GridPane>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="377.999985192076" minWidth="35.32077854356135" prefWidth="47.99997776231135" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="717.6226696708358" minWidth="320.60377560564996" prefWidth="372.2264524550152" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="717.6226696708358" prefWidth="345.0566652107176" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="74.26414136115926" minHeight="50.0" prefHeight="74.26414136115926" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="69.6415094774192" minHeight="31.698119279285038" prefHeight="65.20756177131553" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="88.75474994859064" minHeight="18.113223191638554" prefHeight="81.41509980432258" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="63.39618217601355" minHeight="8.150928403610692" prefHeight="32.60376449699041" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="317.88682191929564" minHeight="10.0" prefHeight="133.03772089446576" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <padding>
+                              <Insets left="14.0" right="14.0" top="4.0" />
+                           </padding>
+                           <children>
+                              <TextField fx:id="f_hname" onMouseClicked="#isselected" promptText="Father/Husband Name" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="cnic" onMouseClicked="#isselected" promptText="National Identity Card Number" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="nationality" onMouseClicked="#isselected" promptText="Nationality" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label fx:id="promptLabelf_hname" styleClass="prompt-label" textFill="#bdbdbd" translateX="20.0" translateY="-20.0" GridPane.columnIndex="1">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="promptLabelnationality" styleClass="prompt-label" textFill="#bdbdbd" translateX="20.0" translateY="-20.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="promptLabelcnic" styleClass="prompt-label" textFill="#bdbdbd" translateX="20.0" translateY="-20.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </content>
+                  </Tab>
+                <Tab fx:id="credit" text="credit">
+                     <content>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="124.07547395786982" minHeight="10.0" prefHeight="53.52830769778923" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="251.77359669197517" minHeight="10.0" prefHeight="40.754729053990395" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="246.33964804204288" minHeight="0.0" prefHeight="38.94339560715497" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="251.7735959871593" minHeight="10.0" prefHeight="251.7735959871593" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <padding>
+                              <Insets left="14.0" right="14.0" top="4.0" />
+                           </padding>
+                           <children>
+                              <HBox alignment="CENTER_LEFT" spacing="45.0">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <children>
+                                    <TextField fx:id="openingBalance" alignment="TOP_LEFT" onKeyPressed="#validatenumberinput" onMouseClicked="#isselected" prefHeight="34.0" prefWidth="250.0" promptText="Opening Balance">
+                                       <HBox.margin>
+                                          <Insets left="25.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Segoe UI" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <DatePicker fx:id="asOfDate" onMouseClicked="#isselected" prefHeight="34.0" prefWidth="250.0" promptText="As of Date" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <children>
+                                    <Label text="Credit Limit">
+                                       <font>
+                                          <Font name="Segoe UI" size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="25.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="754.0" spacing="3.0" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <children>
+                                    <Button fx:id="tglB1" mnemonicParsing="false" onAction="#toggleLimit" styleClass="limitButton" text="No Limit" wrapText="true">
+                                       <HBox.margin>
+                                          <Insets left="15.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Segoe UI Semibold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="toggleBtn" fx:id="tglB2" alignment="BASELINE_RIGHT" graphicTextGap="0.0" maxHeight="30.0" minHeight="30.0" mnemonicParsing="false" onAction="#toggleLimit" prefHeight="30.0" prefWidth="83.0">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#3344ff" size="30" text="" />
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="tglB3" mnemonicParsing="false" onAction="#toggleLimit" styleClass="limitButton" text="Custom Limit" wrapText="true">
+                                       <font>
+                                          <Font name="Segoe UI Semibold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                                 <children>
+                                    <TextField fx:id="creditLimit" alignment="TOP_LEFT" onKeyPressed="#validatenumberinput" onMouseClicked="#isselected" prefHeight="34.0" prefWidth="251.0" promptText="Credit Limit" HBox.hgrow="NEVER">
+                                       <font>
+                                          <Font name="Segoe UI" size="11.773585319519043" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="25.0" top="5.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <Label fx:id="promptLabelOB" styleClass="prompt-label" textFill="#bdbdbd" translateX="45.0" translateY="-20.0">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="promptLabelAD" styleClass="prompt-label" textFill="#bdbdbd" translateX="340.0" translateY="-21.0">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="promptLabelCrL" styleClass="prompt-label" textFill="#bdbdbd" translateX="45.0" translateY="-116.0" GridPane.rowIndex="3">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </content></Tab>
+                  <Tab fx:id="extra" text="extra">
+                     <content>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="377.999985192076" prefWidth="75.37734425708729" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="717.6226696708358" prefWidth="344.15090676209604" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="717.6226696708358" prefWidth="345.0566652107176" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="63.39618217601355" minHeight="50.0" prefHeight="63.39618217601355" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="317.88682191929564" minHeight="10.0" prefHeight="168.3774100629918" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <padding>
+                              <Insets left="14.0" right="14.0" top="4.0" />
+                           </padding>
+                           <children>
+                              <CheckBox fx:id="chkBox1" mnemonicParsing="false" onAction="#enable1" styleClass="checkbox" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <CheckBox fx:id="chkBox2" mnemonicParsing="false" onAction="#enable2" styleClass="checkbox" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <CheckBox fx:id="chkBox4" mnemonicParsing="false" onAction="#enable4" styleClass="checkbox" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <CheckBox fx:id="chkBox3" mnemonicParsing="false" onAction="#enable3" styleClass="checkbox" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <TextField fx:id="ad1" editable="false" onMouseClicked="#isselected" prefHeight="41.0" prefWidth="338.0" promptText="Additional Field Name" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="ad2" editable="false" onMouseClicked="#isselected" prefHeight="41.0" prefWidth="338.0" promptText="Additional Field Name 2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="ad3" editable="false" onMouseClicked="#isselected" prefHeight="41.0" prefWidth="338.0" promptText="Additional Field Name 3" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <HBox GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                 <children>
+                                    <TextField fx:id="ad4" editable="false" onMouseClicked="#isselected" prefHeight="58.0" promptText="Additional Data 4" HBox.hgrow="ALWAYS" />
+                                    
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                              <TextField fx:id="val1" onMouseClicked="#isselected" GridPane.columnIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="val2" onMouseClicked="#isselected" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="val3" onMouseClicked="#isselected" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <DatePicker fx:id="datePicker4" onMouseClicked="#isselected" prefHeight="58.0" prefWidth="343.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </DatePicker>
+                              <Label fx:id="promptLabelad1" styleClass="prompt-label" textFill="#bdbdbd" translateX="20.0" translateY="-20.0" GridPane.columnIndex="1">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="promptLabelad2" styleClass="prompt-label" textFill="#bdbdbd" translateX="20.0" translateY="-20.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="promptLabelad3" styleClass="prompt-label" textFill="#bdbdbd" translateX="20.0" translateY="-20.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="promptLabelad4" styleClass="prompt-label" textFill="#bdbdbd" translateX="20.0" translateY="-26.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="promptLabelad1a" styleClass="prompt-label" textFill="#bdbdbd" translateX="20.0" translateY="-20.0" GridPane.columnIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="promptLabelad2a" styleClass="prompt-label" textFill="#bdbdbd" translateX="20.0" translateY="-20.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="promptLabelad3a" styleClass="prompt-label" textFill="#bdbdbd" translateX="20.0" translateY="-20.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="promptLabelad4a" styleClass="prompt-label" textFill="#bdbdbd" translateX="20.0" translateY="-26.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </content></Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER_RIGHT" maxHeight="75.0" maxWidth="800.0" prefHeight="75.0" prefWidth="800.0" spacing="30.0" styleClass="modern-pane" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <children>
+            <Button id="saveNewButton1" fx:id="saveandnew" mnemonicParsing="false" onAction="#saveandnew" prefHeight="41.0" prefWidth="110.0" text="Save New" HBox.hgrow="NEVER" />
+            <Button id="saveButton1" fx:id="save" mnemonicParsing="false" onAction="#save" prefHeight="40.0" prefWidth="90.0" text="Save" HBox.hgrow="NEVER">
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Button>
+            <Button id="saveButton1" fx:id="update" minWidth="0.0" mnemonicParsing="false" onMouseClicked="#updatecustomer" prefHeight="40.0" prefWidth="0.0" text="Update" visible="false" />
+            <Button id="saveNewButton1" fx:id="delete" layoutX="756.0" layoutY="24.0" minWidth="0.0" mnemonicParsing="false" onMouseClicked="#deleteCustomer" prefHeight="40.0" prefWidth="0.0" text="Delete" visible="false" />
+         </children>
+      </HBox>
+      <Label fx:id="promptLabel1" styleClass="prompt-label" textFill="#bdbdbd" translateX="35.0" translateY="-245.0" GridPane.rowIndex="1">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="promptLabel2" layoutX="11.0" layoutY="330.0" styleClass="prompt-label" textFill="#bdbdbd" translateX="275.0" translateY="-245.0" GridPane.rowIndex="1">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</GridPane>

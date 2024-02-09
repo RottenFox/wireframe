@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane fx:id="dBox" expanded="true" maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: rgba(255, 255, 255, 0.01);" stylesheets="@../looks.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.SelectUnitdBoxController">
+   <graphic>
+      <GridPane maxHeight="-Infinity" maxWidth="400.0" minHeight="-Infinity" minWidth="400.0" prefWidth="400.0" style="-fx-background-color: #D2E2EB;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.99998519207597" minWidth="10.0" prefWidth="43.50938460613847" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="308.8302503553905" minWidth="10.0" prefWidth="308.8302503553905" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="124.999985192076" minWidth="10.0" prefWidth="27.188705895200997" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="35.0" vgrow="NEVER" />
+          <RowConstraints vgrow="ALWAYS" />
+          <RowConstraints minHeight="45.0" vgrow="NEVER" />
+        </rowConstraints>
+         <children>
+            <Label text="Select Unit" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+            </Label>
+            <Label GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <graphic>
+                  <FontAwesomeIconView fx:id="closeIcon" size="22" text="" />
+               </graphic>
+            </Label>
+            <GridPane style="-fx-background-color: #f7f7f7; -fx-border-color: #bdbdbd; -fx-border-width: 0 0 1 0;" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.99998519207597" minWidth="10.0" prefWidth="22.641525719419718" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.71698064318605" minWidth="10.0" prefWidth="177.41510076037355" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.39622542645094" minWidth="10.0" prefWidth="158.39623215139972" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.999985192076" minWidth="10.0" prefWidth="41.660385582701" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="NEVER" />
+                <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="NEVER" />
+                <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" vgrow="NEVER" />
+                  <RowConstraints fx:id="row3" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" vgrow="NEVER" />
+                  <RowConstraints fx:id="row4" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" vgrow="NEVER" />
+              </rowConstraints>
+               <children>
+                  <Label text="Base Unit" textFill="#0b8fc5" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Secondary Unit" textFill="#0b8fc5" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="baseUnitBox" prefHeight="35.0" prefWidth="150.0" promptText="None" style="-fx-background-color: #f7f7f7; -fx-border-color: #bdbdbd;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="secondaryUnitBox" prefHeight="35.0" prefWidth="150.0" promptText="None" style="-fx-background-color: #f7f7f7; -fx-border-color: #bdbdbd;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label fx:id="conLabel" text="Conversion rate" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                     <GridPane.margin>
+                        <Insets top="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <HBox fx:id="conBox" spacing="10.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" GridPane.vgrow="NEVER">
+                     <children>
+                        <RadioButton mnemonicParsing="false" selected="true" textFill="#0b8fc5" />
+                        <Label fx:id="baseUnitLabel" text="Base" textFill="#bdbdbd">
+                           <font>
+                              <Font name="Segoe UI" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="conRate" maxHeight="20.0" minHeight="20.0" prefHeight="20.0" prefWidth="100.0">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </TextField>
+                        <Label fx:id="derivedUnitLabel" text="Derived" textFill="#bdbdbd">
+                           <font>
+                              <Font name="Segoe UI" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <GridPane style="-fx-background-color: #f7f7f7;" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="30.0" text="SAVE" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                     <GridPane.margin>
+                        <Insets right="15.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </graphic>
+</DialogPane>

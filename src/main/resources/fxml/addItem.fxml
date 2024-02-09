@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="1.7976931348623157E308" styleClass="modern-pane" stylesheets="@../looks.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.AddItemController">
+
+   <children>
+      <VBox VBox.vgrow="ALWAYS">
+         <children>
+            <Pane maxHeight="60.0" minHeight="60.0" prefHeight="60.0" styleClass="modern-pane">
+               <children>
+                  <Label fx:id="additemS" layoutX="19.0" layoutY="5.0" prefHeight="47.0" prefWidth="137.0" text="ADD ITEM">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="ID" layoutX="770.0" layoutY="22.0" visible="false" />
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <HBox VBox.vgrow="ALWAYS">
+         <children>
+            <VBox HBox.hgrow="ALWAYS">
+               <children>
+                  <GridPane hgap="20.0" prefHeight="120.0" prefWidth="814.0" vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="228.0" />
+                      <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="228.0" />
+                        <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="228.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="68.00000228881837" minHeight="10.0" prefHeight="52.80000381469726" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="39.59999694824218" minHeight="10.0" prefHeight="37.59999618530274" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="addImageButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="228.0" styleClass="button2" text="Add Image" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="26.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="Itemname" onMouseClicked="#isselected" onMouseExited="#fetchitem" prefHeight="45.0" prefWidth="228.0" promptText="Item Name*">
+                           <font>
+                              <Font name="Segoe UI" size="22.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="itemcode" onMouseClicked="#isselected" onMouseExited="#checkduplicate" prefHeight="45.0" prefWidth="228.0" promptText="Item Code*" styleClass="text-field" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Segoe UI" size="22.0" />
+                           </font>
+                        </TextField>
+                        <ComboBox fx:id="ItemCategory" prefHeight="45.0" prefWidth="228.0" style="-fx-background-color: white;" styleClass="text-field" GridPane.columnIndex="1">
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="Unspecified Action">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" text="Button" />
+                                       </graphic>
+                                    </MenuItem>
+                                    <MenuItem mnemonicParsing="false" text="Unspecified Action">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" text="Button" />
+                                       </graphic>
+                                    </MenuItem>
+                                    <MenuItem mnemonicParsing="false" text="Unspecified Action">
+                                       <graphic>
+                                          <Button mnemonicParsing="false" text="Button" />
+                                       </graphic>
+                                    </MenuItem>
+                                </items>
+                              </ContextMenu>
+                           </contextMenu></ComboBox>
+                        <Button fx:id="selectUnit" mnemonicParsing="false" onAction="#selectUnit" prefHeight="50.0" prefWidth="228.0" style="-fx-background-color: #b5b5b5;" styleClass="text-field" text="Select unit" GridPane.columnIndex="2" />
+                        <TextField fx:id="itemsize" onKeyPressed="#validateintinput" onMouseClicked="#isselected" prefHeight="45.0" prefWidth="228.0" promptText="Item Size*" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Segoe UI" size="22.0" />
+                           </font>
+                        </TextField>
+                        <Label fx:id="promptLabel2" styleClass="prompt-label" textFill="#bdbdbd" translateY="-20.0" wrapText="true" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="16.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="promptLabel3" styleClass="prompt-label" textFill="#bdbdbd" translateY="-20.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="16.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="promptLabelCat" styleClass="cat-label" text="Category" textFill="#d4d3d7" wrapText="true" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Segoe UI" size="22.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="16.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="promptLabel1" styleClass="prompt-label" textFill="#bdbdbd" translateY="-22.0" wrapText="true">
+                           <GridPane.margin>
+                              <Insets left="16.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Segoe UI" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <HBox fx:id="stackSwitch" maxWidth="813.0" prefHeight="31.0" prefWidth="813.0">
+                     <children>
+                        <Button fx:id="priceTab" mnemonicParsing="false" onAction="#switchToPrice" prefHeight="30.0" prefWidth="91.0" styleClass="tabButton" text="Pricing">
+                           <HBox.margin>
+                              <Insets left="25.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Segoe UI Semibold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="stockTab" mnemonicParsing="false" onAction="#switchToStock" prefHeight="31.0" prefWidth="86.0" styleClass="tabButton" text="Stock">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <TabPane fx:id="itempane">
+                     <tabs>
+                        <Tab fx:id="price">
+                           <content>
+                              <VBox fx:id="pricing" prefHeight="450.0" prefWidth="800.0" spacing="10.0">
+                                 <children>
+                                    <GridPane hgap="20.0" vgap="20.0" VBox.vgrow="NEVER">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="228.0" />
+                                        <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="228.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <TextField fx:id="purchasePrice" maxWidth="228.0" onKeyPressed="#validatenumberinput" onMouseClicked="#isselected" prefHeight="45.0" prefWidth="228.0" promptText="Purchase Price*" styleClass="text-field" GridPane.hgrow="NEVER" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Segoe UI" size="22.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label fx:id="promptLabel4" styleClass="prompt-label" textFill="#bdbdbd" translateY="-20.0" wrapText="true" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="16.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <TextField fx:id="salePrice" maxWidth="228.0" onKeyPressed="#validatenumberinput" onMouseClicked="#isselected" prefHeight="45.0" prefWidth="228.0" promptText="Sale Price*" styleClass="text-field" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Segoe UI" size="22.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label prefHeight="47.0" prefWidth="137.0" text="Sale Price" GridPane.columnIndex="1" GridPane.hgrow="NEVER">
+                                             <font>
+                                                <Font name="Segoe UI Semibold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefHeight="47.0" prefWidth="137.0" text="Purchase Price">
+                                             <font>
+                                                <Font name="Segoe UI Semibold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="promptLabel5" styleClass="prompt-label" textFill="#bdbdbd" translateY="-20.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="16.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                    <GridPane hgap="15.0" vgap="10.0" VBox.vgrow="NEVER">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="228.0" />
+                                          <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="228.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="49.81132129792776" minHeight="10.0" prefHeight="47.99998096589651" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="58.8679203999005" minHeight="10.0" prefHeight="44.37738084911925" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <TextField fx:id="wholeSalePrice" maxWidth="228.0" onKeyPressed="#validatenumberinput" onMouseClicked="#isselected" prefHeight="45.0" prefWidth="228.0" promptText="Wholesale Price*" styleClass="text-field" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Segoe UI" size="22.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label prefHeight="47.0" prefWidth="137.0" text="WholeSale Price">
+                                             <font>
+                                                <Font name="Segoe UI Semibold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="promptLabel6" styleClass="prompt-label" textFill="#bdbdbd" translateY="-22.0" wrapText="true" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="16.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <TextField fx:id="wholesaleQty" maxWidth="228.0" onKeyPressed="#validatenumberinput" onMouseClicked="#isselected" prefHeight="45.0" prefWidth="228.0" promptText="Wholesale Qty*" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Segoe UI" size="22.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label fx:id="promptLabel7" styleClass="prompt-label" textFill="#bdbdbd" translateY="-22.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="16.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label prefHeight="47.0" prefWidth="137.0" text="Wholesale Qty" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font name="Segoe UI Semibold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="20.0" right="20.0" top="10.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="stock">
+                          <content>
+                            <Pane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                          </content>
+                           <content>
+                              <GridPane hgap="20.0" maxHeight="200.0" prefHeight="300.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <TextField fx:id="openingQty" onKeyPressed="#validatenumberinput" onMouseClicked="#isselected" prefHeight="45.0" prefWidth="228.0" promptText="Opening Qty*" styleClass="text-field">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label fx:id="promptLabel8" styleClass="prompt-label" textFill="#bdbdbd" wrapText="true">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets bottom="44.0" left="16.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <TextField fx:id="minStockToMaintain" onKeyPressed="#validatenumberinput" prefHeight="45.0" prefWidth="228.0" promptText="Min. Stock to Maintain*" styleClass="text-field" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="atPrice" onKeyPressed="#validatenumberinput" onMouseClicked="#isselected" prefHeight="45.0" prefWidth="228.0" promptText="At Price*" styleClass="text-field" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="maxstock" onKeyPressed="#validatenumberinput" prefHeight="45.0" prefWidth="228.0" promptText="Max.Stock to Maintain" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                    </TextField>
+                                    <DatePicker fx:id="datepicker" onShown="#validatenumberinput" prefHeight="45.0" promptText="Select Date" GridPane.columnIndex="2">
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </DatePicker>
+                                    <TextField fx:id="location" layoutX="300.0" layoutY="136.0" prefHeight="45.0" prefWidth="228.0" promptText="Location" styleClass="text-field" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label fx:id="promptLabel9" styleClass="prompt-label" textFill="#bdbdbd" translateY="-22.0" wrapText="true" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="16.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="promptLabel10" styleClass="prompt-label" textFill="#bdbdbd" translateY="-22.0" wrapText="true" GridPane.columnIndex="2">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="16.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="promptLabel11" styleClass="prompt-label" textFill="#bdbdbd" translateY="-22.0" wrapText="true" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="16.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="promptLabel12" styleClass="prompt-label" textFill="#bdbdbd" translateY="-22.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="16.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="promptLabel13" styleClass="prompt-label" textFill="#bdbdbd" translateY="-22.0" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Segoe UI" size="14.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="16.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </GridPane>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+                  <HBox alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="200.0" spacing="20.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Button fx:id="saveandnew" mnemonicParsing="false" onAction="#saveandnewitem" prefHeight="45.0" prefWidth="124.0" style="-fx-background-color: #b5b5b5;" styleClass="text-field" text=" Save New">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin></Button>
+                        <Button fx:id="save" mnemonicParsing="false" onAction="#saveitem" prefHeight="45.0" prefWidth="124.0" style="-fx-background-color: #b5b5b5;" styleClass="text-field" text="Save">
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="Update" minWidth="0.0" mnemonicParsing="false" onMouseClicked="#updateitem" prefHeight="45.0" prefWidth="0.0" styleClass="text-field" text="Update" visible="false" />
+                        <Button fx:id="delete" minWidth="0.0" mnemonicParsing="false" onMouseClicked="#deleteItem" prefHeight="45.0" prefWidth="0.0" styleClass="text-field" text="Delete" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="200.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

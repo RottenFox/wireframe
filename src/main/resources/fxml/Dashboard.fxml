@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox minHeight="720.0" minWidth="800.0" stylesheets="@../looks.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.DashboardController">
+   <children>
+      <MenuBar fx:id="menuBar" VBox.vgrow="ALWAYS">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="New" />
+                  <MenuItem mnemonicParsing="false" text="Open…" />
+                  <Menu mnemonicParsing="false" text="Open Recent" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Save As…" />
+                  <MenuItem mnemonicParsing="false" text="Revert" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Preferences…" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Undo" />
+                  <MenuItem mnemonicParsing="false" text="Redo" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Cut" />
+                  <MenuItem mnemonicParsing="false" text="Copy" />
+                  <MenuItem mnemonicParsing="false" text="Paste" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Select All" />
+                  <MenuItem mnemonicParsing="false" text="Unselect All" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <StackPane fx:id="rootpanr" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox>
+               <children>
+                  <ScrollPane fitToWidth="true" minWidth="305.0" HBox.hgrow="NEVER">
+                     <content>
+                        <VBox fx:id="leftSidePanel" style="-fx-background-color: #666;" styleClass="modern-pane">
+                           <children>
+                              <Pane fx:id="bizContainer" maxHeight="66.0" onMouseClicked="#openHome" styleClass="modern-button">
+                                 <children>
+                                    <FontAwesomeIconView glyphName="HOME" layoutX="14.0" layoutY="49.0" size="40" />
+                                    <Label layoutX="78.0" layoutY="5.0" prefHeight="56.0" prefWidth="130.0" text="Home" textFill="#d3d3d3">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="bizContainer11" maxHeight="66.0" styleClass="modern-button">
+                                 <children>
+                                    <Label layoutX="-4.0" layoutY="5.0" onMouseClicked="#openShowCustomer" prefHeight="56.0" prefWidth="240.0" text="Customer" textFill="#d3d3d3">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="75.0" />
+                                       </padding>
+                                    </Label>
+                                    <Button fx:id="addCustomerButon" layoutX="232.0" mnemonicParsing="false" onAction="#openCustomerOL" prefHeight="70.0" prefWidth="70.0" styleClass="icon-buttons">
+                                       <graphic>
+                                          <FontAwesomeIconView size="40" text="" />
+                                       </graphic>
+                                    </Button>
+                                    <FontAwesomeIconView layoutX="19.0" layoutY="42.0" size="30" text="" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="bizContainer111" maxHeight="66.0" onMouseClicked="#openItemHome" styleClass="modern-button">
+                                 <children>
+                                    <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label layoutX="1.0" layoutY="5.0" prefHeight="56.0" prefWidth="228.0" text="Item" textFill="#d3d3d3">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="80.0" />
+                                       </padding>
+                                    </Label>
+                                    <Button layoutX="232.0" mnemonicParsing="false" onMouseClicked="#openadditem" prefHeight="70.0" prefWidth="70.0" styleClass="icon-buttons">
+                                       <graphic>
+                                          <FontAwesomeIconView size="40" text="" />
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="bizContainer1" maxHeight="66.0" onMouseClicked="#openSaleHome" styleClass="modern-button">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="130.0" layoutY="5.0" prefHeight="56.0" prefWidth="288.0" text="Sale" textFill="#d3d3d3">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="saledown" size="20" text="" />
+                                       </graphic>
+                                       <padding>
+                                          <Insets left="60.0" />
+                                       </padding>
+                                    </Label>
+                                    <FontAwesomeIconView layoutX="16.0" layoutY="46.0" size="40" text="" />
+                                 </children>
+                              </Pane>
+                              <VBox fx:id="salepane" minHeight="0.0" prefHeight="0.0">
+                                 <children>
+                                    <HBox minHeight="50.0" minWidth="288.0" prefHeight="0.0" prefWidth="0.0">
+                                       <children>
+                                          <Button fx:id="addsale" contentDisplay="RIGHT" graphicTextGap="10.0" minHeight="0.0" mnemonicParsing="false" onMouseClicked="#opensale" prefHeight="50.0" prefWidth="247.0" styleClass="modern-button" text="ADD SALE" textFill="#fcfbfb">
+                                             <font>
+                                                <Font name="Times New Roman Bold" size="18.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button minHeight="50.0" mnemonicParsing="false" onMouseClicked="#opensale" prefHeight="50.0" prefWidth="40.0" styleClass="modern-button">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                             <graphic>
+                                                <FontAwesomeIconView size="30" text="+" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox minHeight="50.0" minWidth="288.0" prefHeight="0.0" prefWidth="0.0">
+                                       <children>
+                                          <Button fx:id="paymentin" graphicTextGap="10.0" minHeight="50.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="247.0" styleClass="modern-button" text="PAYEMENT_IN" textFill="#fff9f9">
+                                             <font>
+                                                <Font name="Times New Roman" size="18.0" />
+                                             </font>
+                                          </Button>
+                                          <Button minHeight="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="40.0" styleClass="modern-button">
+                                             <graphic>
+                                                <FontAwesomeIconView size="30" text="+" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="60.0" minHeight="50.0" minWidth="288.0" prefHeight="0.0" prefWidth="0.0">
+                                       <children>
+                                          <Button fx:id="paymentin1" graphicTextGap="10.0" minHeight="50.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="247.0" styleClass="modern-button" text="Sale Return" textFill="#fff9f9">
+                                             <font>
+                                                <Font name="Times New Roman" size="18.0" />
+                                             </font>
+                                          </Button>
+                                          <Button minHeight="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="40.0" styleClass="modern-button">
+                                             <graphic>
+                                                <FontAwesomeIconView size="30" text="+" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="111.0" minHeight="50.0" minWidth="288.0" prefHeight="0.0" prefWidth="0.0">
+                                       <children>
+                                          <Button fx:id="paymentin11" graphicTextGap="10.0" minHeight="50.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="247.0" styleClass="modern-button" text="Sale Order" textFill="#fff9f9">
+                                             <font>
+                                                <Font name="Times New Roman" size="18.0" />
+                                             </font>
+                                          </Button>
+                                          <Button minHeight="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="40.0" styleClass="modern-button">
+                                             <graphic>
+                                                <FontAwesomeIconView size="30" text="+" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="161.0" minHeight="50.0" minWidth="288.0" prefHeight="0.0" prefWidth="0.0">
+                                       <children>
+                                          <Button fx:id="paymentin111" graphicTextGap="10.0" minHeight="50.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="247.0" styleClass="modern-button" text="Delivery Challan" textFill="#fff9f9">
+                                             <font>
+                                                <Font name="Times New Roman" size="18.0" />
+                                             </font>
+                                          </Button>
+                                          <Button minHeight="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="40.0" styleClass="modern-button">
+                                             <graphic>
+                                                <FontAwesomeIconView size="30" text="+" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <Pane fx:id="bizContainer2" maxHeight="66.0" onMouseClicked="#openPurchaseHome" styleClass="modern-button">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="90.0" layoutX="10.0" layoutY="15.0" prefHeight="56.0" prefWidth="288.0" text="Purchase" textFill="#d3d3d3">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                       <graphic>
+                                          <FontAwesomeIconView fx:id="saledown1" size="20" text="" />
+                                       </graphic>
+                                       <padding>
+                                          <Insets left="40.0" />
+                                       </padding>
+                                    </Label>
+                                    <FontAwesomeIconView layoutX="14.0" layoutY="56.0" size="40" text="" />
+                                 </children>
+                              </Pane>
+                              <VBox fx:id="purchasepane" layoutX="11.0" layoutY="200.0" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0">
+                                 <children>
+                                    <HBox minHeight="50.0" minWidth="288.0" prefHeight="0.0" prefWidth="0.0">
+                                       <children>
+                                          <Button fx:id="addpurchase" graphicTextGap="10.0" minHeight="0.0" mnemonicParsing="false" onMouseClicked="#openpurchase" prefHeight="50.0" prefWidth="247.0" styleClass="modern-button" text="ADD PURCHASE" textFill="#fcfbfb">
+                                             <font>
+                                                <Font name="Times New Roman Bold" size="18.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </Button>
+                                          <Button minHeight="50.0" mnemonicParsing="false" onMouseClicked="#openpurchase" prefHeight="50.0" prefWidth="40.0" styleClass="modern-button">
+                                             <graphic>
+                                                <FontAwesomeIconView size="30" text="+" />
+                                             </graphic>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox minHeight="50.0" minWidth="288.0" prefHeight="0.0" prefWidth="0.0">
+                                       <children>
+                                          <Button fx:id="paymentin1" graphicTextGap="10.0" minHeight="50.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="247.0" styleClass="modern-button" text="PAYEMENT_OUT" textFill="#fff9f9">
+                                             <font>
+                                                <Font name="Times New Roman" size="18.0" />
+                                             </font>
+                                          </Button>
+                                          <Button minHeight="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="40.0" styleClass="modern-button">
+                                             <graphic>
+                                                <FontAwesomeIconView size="30" text="+" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="60.0" minHeight="50.0" minWidth="288.0" prefHeight="0.0" prefWidth="0.0">
+                                       <children>
+                                          <Button fx:id="paymentin11" graphicTextGap="10.0" minHeight="50.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="247.0" styleClass="modern-button" text="PURCHASE RETURN" textFill="#fff9f9">
+                                             <font>
+                                                <Font name="Times New Roman" size="18.0" />
+                                             </font>
+                                          </Button>
+                                          <Button minHeight="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="40.0" styleClass="modern-button">
+                                             <graphic>
+                                                <FontAwesomeIconView size="30" text="+" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="111.0" minHeight="50.0" minWidth="288.0" prefHeight="0.0" prefWidth="0.0">
+                                       <children>
+                                          <Button fx:id="paymentin111" graphicTextGap="10.0" minHeight="50.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="247.0" styleClass="modern-button" text="PURCHASE ORDER" textFill="#fff9f9">
+                                             <font>
+                                                <Font name="Times New Roman" size="18.0" />
+                                             </font>
+                                          </Button>
+                                          <Button minHeight="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="40.0" styleClass="modern-button">
+                                             <graphic>
+                                                <FontAwesomeIconView size="30" text="+" />
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <Pane fx:id="bizContainer3" onMouseClicked="#openPOS" prefHeight="66.0" prefWidth="288.0" styleClass="modern-button">
+                                 <children>
+                                    <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label layoutX="78.0" layoutY="5.0" prefHeight="56.0" prefWidth="130.0" text="Quick Bill" textFill="#d3d3d3">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="224.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="icon_con" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="bizContainer31" layoutX="11.0" layoutY="343.0" onMouseClicked="#openPOS" prefHeight="66.0" prefWidth="288.0" styleClass="modern-button">
+                                 <children>
+                                    <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label layoutX="78.0" layoutY="5.0" prefHeight="56.0" prefWidth="130.0" text="Expense" textFill="#d3d3d3">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="224.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="icon_con" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="bizContainer4" onMouseClicked="#openReportsHome" prefHeight="66.0" prefWidth="288.0" styleClass="modern-button">
+                                 <children>
+                                    <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label layoutX="78.0" layoutY="5.0" prefHeight="56.0" prefWidth="130.0" text="Reports" textFill="#d3d3d3">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="224.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="icon_con" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="bizContainer5" onMouseClicked="#OpenExpensesHome" prefHeight="66.0" prefWidth="288.0" styleClass="modern-button">
+                                 <children>
+                                    <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label layoutX="78.0" layoutY="5.0" prefHeight="56.0" prefWidth="130.0" text="Expenses" textFill="#d3d3d3">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="224.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="icon_con" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="bizContainer6" onMouseClicked="#openSettings" prefHeight="66.0" prefWidth="288.0" styleClass="modern-button">
+                                 <children>
+                                    <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label layoutX="78.0" layoutY="5.0" prefHeight="56.0" prefWidth="130.0" text="Settings" textFill="#d3d3d3">
+                                       <font>
+                                          <Font name="Segoe UI" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="224.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="icon_con" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <VBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox fx:id="quickAccess" maxHeight="56.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <TextField prefHeight="58.0" prefWidth="462.0" promptText=". ENTER BUSINESS NAME" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="36.0" />
+                                 </font>
+                              </TextField>
+                           </children></HBox>
+                        <HBox style="-fx-background-color: #d5f0f5;" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane fx:id="stackerPane" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <Pane minWidth="700.0" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <StackPane fx:id="overlayPane" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
+               <children>
+                  <Pane style="-fx-background-color: white;" />
+               </children>
+            </StackPane>
+         </children>
+      </StackPane>
+   </children>
+</VBox>
