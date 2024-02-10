@@ -65,7 +65,8 @@ public class CustomerAddController implements Initializable {
     private SharedItemService sharedItemService;
     
     @Autowired
-   Cusrep cus;
+    Cusrep cus;
+    
     
     @FXML
     private Tab personal,address,credit,extra;
