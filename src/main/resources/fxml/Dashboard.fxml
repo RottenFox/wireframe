@@ -2,6 +2,10 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -9,7 +13,10 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -60,9 +67,9 @@
       </MenuBar>
       <StackPane fx:id="rootpanr" VBox.vgrow="ALWAYS">
          <children>
-            <HBox>
+            <HBox style="-fx-background-color: #666;">
                <children>
-                  <ScrollPane fitToWidth="true" minWidth="305.0" HBox.hgrow="NEVER">
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" minWidth="305.0" prefHeight="696.0" prefWidth="331.0" style="-fx-background-color: #666;" HBox.hgrow="NEVER">
                      <content>
                         <VBox fx:id="leftSidePanel" style="-fx-background-color: #666;" styleClass="modern-pane">
                            <children>
@@ -78,7 +85,7 @@
                               </Pane>
                               <Pane fx:id="bizContainer11" maxHeight="66.0" styleClass="modern-button">
                                  <children>
-                                    <Label layoutX="-4.0" layoutY="5.0" onMouseClicked="#openShowCustomer" prefHeight="56.0" prefWidth="240.0" text="Customer" textFill="#d3d3d3">
+                                    <Label layoutX="-4.0" layoutY="5.0" onMouseClicked="#openShowCustomer" prefHeight="56.0" prefWidth="240.0" text="Courses" textFill="#d3d3d3">
                                        <font>
                                           <Font name="Segoe UI" size="22.0" />
                                        </font>
@@ -96,14 +103,16 @@
                               </Pane>
                               <Pane fx:id="bizContainer111" maxHeight="66.0" onMouseClicked="#openItemHome" styleClass="modern-button">
                                  <children>
-                                    <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label layoutX="1.0" layoutY="5.0" prefHeight="56.0" prefWidth="228.0" text="Item" textFill="#d3d3d3">
+                                    <Label layoutX="1.0" layoutY="5.0" prefHeight="56.0" prefWidth="228.0" text="Products" textFill="#d3d3d3">
                                        <font>
                                           <Font name="Segoe UI" size="22.0" />
                                        </font>
                                        <padding>
-                                          <Insets left="80.0" />
+                                          <Insets left="39.0" />
                                        </padding>
+                                       <graphic>
+                                          <FontAwesomeIconView size="30" text="" translateX="-20.0" />
+                                       </graphic>
                                     </Label>
                                     <Button layoutX="232.0" mnemonicParsing="false" onMouseClicked="#openadditem" prefHeight="70.0" prefWidth="70.0" styleClass="icon-buttons">
                                        <graphic>
@@ -114,7 +123,7 @@
                               </Pane>
                               <Pane fx:id="bizContainer1" maxHeight="66.0" onMouseClicked="#openSaleHome" styleClass="modern-button">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="130.0" layoutY="5.0" prefHeight="56.0" prefWidth="288.0" text="Sale" textFill="#d3d3d3">
+                                    <Label alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="130.0" layoutY="5.0" prefHeight="56.0" prefWidth="288.0" text="Order" textFill="#d3d3d3">
                                        <font>
                                           <Font name="Segoe UI" size="22.0" />
                                        </font>
@@ -296,18 +305,7 @@
                               <Pane fx:id="bizContainer3" onMouseClicked="#openPOS" prefHeight="66.0" prefWidth="288.0" styleClass="modern-button">
                                  <children>
                                     <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label layoutX="78.0" layoutY="5.0" prefHeight="56.0" prefWidth="130.0" text="Quick Bill" textFill="#d3d3d3">
-                                       <font>
-                                          <Font name="Segoe UI" size="22.0" />
-                                       </font>
-                                    </Label>
-                                    <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="224.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" styleClass="icon_con" />
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="bizContainer31" layoutX="11.0" layoutY="343.0" onMouseClicked="#openPOS" prefHeight="66.0" prefWidth="288.0" styleClass="modern-button">
-                                 <children>
-                                    <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label layoutX="78.0" layoutY="5.0" prefHeight="56.0" prefWidth="130.0" text="Expense" textFill="#d3d3d3">
+                                    <Label layoutX="78.0" layoutY="5.0" prefHeight="56.0" prefWidth="130.0" text="Inventory" textFill="#d3d3d3">
                                        <font>
                                           <Font name="Segoe UI" size="22.0" />
                                        </font>
@@ -354,13 +352,22 @@
                   </ScrollPane>
                   <VBox HBox.hgrow="ALWAYS">
                      <children>
-                        <HBox fx:id="quickAccess" maxHeight="56.0" VBox.vgrow="ALWAYS">
+                        <HBox fx:id="quickAccess" alignment="CENTER" maxHeight="56.0" spacing="30.0" style="-fx-background-color: #fff;" VBox.vgrow="ALWAYS">
                            <children>
-                              <TextField prefHeight="58.0" prefWidth="462.0" promptText=". ENTER BUSINESS NAME" HBox.hgrow="ALWAYS">
+                              <Label text="Controller">
                                  <font>
-                                    <Font name="Times New Roman Bold" size="36.0" />
+                                    <Font name="Segoe UI Semibold" size="22.0" />
                                  </font>
-                              </TextField>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                              <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="74.0" text="Logout">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                              </Button>
                            </children></HBox>
                         <HBox style="-fx-background-color: #d5f0f5;" VBox.vgrow="ALWAYS">
                            <children>
@@ -369,7 +376,47 @@
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </HBox.margin>
                                  <children>
-                                    <Pane minWidth="700.0" />
+                                    <Pane minWidth="700.0">
+                                       <children>
+                                          <LineChart layoutX="358.0" layoutY="310.0" prefHeight="225.0" prefWidth="320.0" title="Daily Expenses">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </LineChart>
+                                          <AreaChart layoutX="22.0" layoutY="310.0" prefHeight="225.0" prefWidth="320.0" title="Daily Sale">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </AreaChart>
+                                          <TableView layoutX="53.0" layoutY="48.0" prefHeight="234.0" prefWidth="272.0">
+                                            <columns>
+                                              <TableColumn prefWidth="172.981201171875" text="Item Name" />
+                                              <TableColumn prefWidth="98.71693420410156" sortType="DESCENDING" text="Stock " />
+                                            </columns>
+                                          </TableView>
+                                          <Label layoutX="111.0" layoutY="12.0" text="Items in low stock">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TreeTableView layoutX="388.0" layoutY="48.0" prefHeight="234.0" prefWidth="272.0">
+                                            <columns>
+                                              <TreeTableColumn prefWidth="130.4150390625" text="Menu" />
+                                              <TreeTableColumn prefWidth="141.2830810546875" text="Dish" />
+                                            </columns>
+                                          </TreeTableView>
+                                          <Label layoutX="441.0" layoutY="12.0" text="Tommorow's Menu">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children></Pane>
                                  </children>
                               </StackPane>
                            </children>
