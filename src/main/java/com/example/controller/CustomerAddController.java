@@ -290,6 +290,7 @@ public class CustomerAddController implements Initializable {
     a.setEmail(Optional.ofNullable(emailId.getText()).orElse("DefaultName"));
     a.setOpenbalance(tostring(openingBalance.getText()));
     a.setCreditlimit(tostring(creditLimit.getText()));
+    a.setCustomerBalance(0.0f);
     a.setAddress(Optional.ofNullable(billAddress.getText()).orElse("DefaultName"));
     a.setShippingAddress(Optional.ofNullable(shipAddress.getText()).orElse("DefaultName"));
     a.setAditionalnamefield1(Optional.ofNullable(ad1.getText()).orElse("DefaultName"));

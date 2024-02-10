@@ -161,7 +161,7 @@ private int rownumber;
     }
    
     public Float getAverageCost() {
-        return averageCost;
+        return Optional.ofNullable( averageCost).orElse(0f);
     }
 
     public void setAverageCost(Float averageCost) {

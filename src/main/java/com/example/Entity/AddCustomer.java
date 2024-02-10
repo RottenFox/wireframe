@@ -130,7 +130,7 @@ private String customercode;
     
 
     public Float getBalance() {
-         return Optional.ofNullable(customerBalance -(purchaseBalance + openbalance)).orElse(0f);
+         return Optional.ofNullable(getCustomerBalance() - (getPurchaseBalance() + getOpenbalance())).orElse(0f);
     }
      public SimpleFloatProperty getBalanceProperty() {
         return Balance;

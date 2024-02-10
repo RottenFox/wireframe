@@ -216,7 +216,7 @@ public class AdpurchaseController implements Initializable {
             }else if(type.equals("PRICE")){
                 summaryToUpdate.setPrice(items.getPurchase_price());
                 summaryToUpdate.setAmount(items.getAmount());
-                purchaseService.incrementStock(items.getProductname(), qty , items.getPurchase_price(),"CHANAGE");
+                purchaseService.incrementStock(items.getProductname(), items.getQty() , qty,"CHANAGE");
             }else if(type.equals("AMOUNT")){
                 summaryToUpdate.setAmount(items.getAmount());
                 summaryToUpdate.setPrice(items.getPurchase_price());
@@ -619,6 +619,7 @@ void bind() {
     purchasetable.getItems().add(newItem);
      purchasetable.getSelectionModel().selectLast();
             purchasetable.scrollTo(purchasetable.getItems().size() - 1);
+            
             if (saveitemrow()) {
                 System.out.println("Data Save Sucessfully");
             }else{
@@ -885,9 +886,9 @@ private void showAllItems() {
             }
                     break;
                 case PRICE:
-                    float newprice = selectedItem.getQty();  
+                    float newprice = selectedItem.getPurchase_price();  
            existingSummary = finditemwithinvoice(purchasetable.getSelectionModel().getSelectedItem());
-            if (updateqty(existingSummary , selectedItem , selectedItem.getQty() , "PRICE")) {
+            if (updateqty(existingSummary , selectedItem , newprice - previousvalue , "PRICE")) {
                 System.out.println("Update");
             }else{
                 System.out.println("Not Updated");

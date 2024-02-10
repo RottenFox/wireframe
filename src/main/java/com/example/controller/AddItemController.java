@@ -133,6 +133,9 @@ public class AddItemController implements Initializable {
     a.setMaxstock( tostring(maxstock.getText()));
     a.setItem_openstock(tostring(openingQty.getText()));
     a.setItem_stockAmount(tostring(atPrice.getText()));
+    a.setPurchaseqty(0.0f);
+    a.setSaleqty(0.0f);
+    a.setAverageCost(tostring(purchasePrice.getText()));
              System.out.println(datepicker.getValue());
     if (datepicker.getValue() == null) {
     a.setDate(LocalDate.now()); // Set to current date if DatePicker is empty
