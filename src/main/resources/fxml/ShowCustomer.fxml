@@ -304,7 +304,7 @@
                                        </graphic>
                                     </Button>
                                     <TextField layoutX="56.0" layoutY="18.0" onKeyReleased="#filterdata" visible="false" AnchorPane.leftAnchor="70.0" />
-                                    <SplitMenuButton layoutX="93.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#addCourse" prefHeight="32.0" prefWidth="149.0" text="Add Course">
+                                    <SplitMenuButton fx:id="addCourseButton" layoutX="93.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#addCourse" prefHeight="32.0" prefWidth="149.0" text="Add Course">
                                        <items>
                                           <MenuItem mnemonicParsing="false" text="Import Item" />
                                        </items>
