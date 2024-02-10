@@ -15,25 +15,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class PurchaseService {
-
-    @Autowired
+public class changeQPA {
+        @Autowired
     private Itemrep itemRepository;
     
-    
-    
-    
-////     @Transactional
-//    public void purchasebalance(String customername, Float quantity) {
-//        AddCustomer items = cus.findByCustomerNameWithLock(customername)
-//                .orElseThrow(() -> new RuntimeException("Customer  not found"));
-//
-//        // Perform stock decrement logic
-//        items.setPurchaseBalance(items.getPurchaseBalance() + quantity);
-//        cus.save(items);
-//    }
+
     @Transactional
-    public void incrementStock(String itemname, Float quantity , Float Price , String check) {
+    public void changestock(String itemname, Float quantity , Float Price , String check, Float previousprice) {
         AddItem items = itemRepository.findByProductnameWithLock(itemname)
                 .orElseThrow(() -> new RuntimeException("Item not found"));
 
@@ -42,19 +30,22 @@ public class PurchaseService {
         float totalStock = Stock + quantity;
         float averagecost = Stock * items.getAverageCost();
         float newprice = quantity * Price;
-        if (check.equals("")) {
+        if (!check.equals("QTY")) {
             items.setPurchaseqty(items.getPurchaseqty() + quantity);
         
             items.setAverageCost((averagecost + newprice) / totalStock );
         }
-        
-        if (check.equals("CHANAGE")) {
-            items.setAverageCost((averagecost + newprice) / Stock );
-        }
-        
+            
+            
+            
             System.out.println(averagecost);
             System.out.println(newprice);
             System.out.println(totalStock);
+            
+            if (check.equals("PRICE")) {
+                float prevstockp = previousprice * quantity;
+            items.setAverageCost(((averagecost - prevstockp + newprice) / Stock));
+        }
         
         itemRepository.save(items);
     }
