@@ -64,7 +64,7 @@ public class ShowCustomerController implements Initializable {
     private TabPane customerTabPane;
     
     @FXML
-    private SplitMenuButton addCustomer;
+    private SplitMenuButton addCustomer, addCourseButton;
 
     @FXML
     private Label addEmail;
@@ -148,9 +148,17 @@ public class ShowCustomerController implements Initializable {
     }
     @FXML
     void addCustomer(MouseEvent event) {
-{
+    {
         if (dashboardController != null) {
             dashboardController.loadOverlayContent("/fxml/CustomerAdd.fxml");
+        }
+    }
+    }
+    @FXML
+    void addCourse(MouseEvent event) {
+    {
+        if (dashboardController != null) {
+            dashboardController.loadOverlayContent("/fxml/addCourse.fxml");
         }
     }
     }
