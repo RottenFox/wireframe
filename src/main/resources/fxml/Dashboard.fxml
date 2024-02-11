@@ -373,10 +373,10 @@
                            <children>
                               <StackPane fx:id="stackerPane" HBox.hgrow="ALWAYS">
                                  <HBox.margin>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    <Insets />
                                  </HBox.margin>
                                  <children>
-                                    <Pane minWidth="700.0">
+                                    <Pane minWidth="700.0" prefWidth="755.0">
                                        <children>
                                           <LineChart layoutX="358.0" layoutY="310.0" prefHeight="225.0" prefWidth="320.0" title="Daily Expenses">
                                             <xAxis>
@@ -416,7 +416,10 @@
                                                 <Font size="18.0" />
                                              </font>
                                           </Label>
-                                       </children></Pane>
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets />
+                                       </StackPane.margin></Pane>
                                  </children>
                               </StackPane>
                            </children>

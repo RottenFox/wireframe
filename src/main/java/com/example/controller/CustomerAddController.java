@@ -65,7 +65,8 @@ public class CustomerAddController implements Initializable {
     private SharedItemService sharedItemService;
     
     @Autowired
-   Cusrep cus;
+    Cusrep cus;
+    
     
     @FXML
     private Tab personal,address,credit,extra;
@@ -590,7 +591,7 @@ if (cust.isPresent() && save.isVisible() && !partyName.getText().isEmpty()) {
                 datePicker4.setValue(firstItem.getDate());
                 asOfDate.setValue(firstItem.getOpenbalancedate());
                 ID.setText(firstItem.getCustomerId()+"");
-    update.setVisible(true);
+                update.setVisible(true);
                 update.setPrefWidth(124);
                  delete.setVisible(true);
                 delete.setPrefWidth(124);
@@ -649,8 +650,7 @@ void updatecustomer(MouseEvent event) {
     if (!isEventTargetExcluded(event)) {
         
         dashboardController.setOverlayPaneInvisible();
-    }
-});
+    }});
         
     }  
 }

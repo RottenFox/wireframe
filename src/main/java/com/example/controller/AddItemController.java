@@ -287,7 +287,7 @@ if (items.isPresent() && save.isVisible()) {
     }
      @FXML
     void switchToPrice(ActionEvent event) {
-           itempane.getSelectionModel().select(price);
+        itempane.getSelectionModel().select(price);
         priceTab.setStyle("-fx-border-color: red");
         stockTab.setStyle("-fx-border-color: transparent");
         manufacturing.setStyle("-fx-border-color: transparent");
@@ -297,7 +297,7 @@ if (items.isPresent() && save.isVisible()) {
     void switchToStock(ActionEvent event) {
         
         itempane.getSelectionModel().select(stock);
-           priceTab.setStyle("-fx-border-color: transparent");
+        priceTab.setStyle("-fx-border-color: transparent");
         stockTab.setStyle("-fx-border-color: red");
         manufacturing.setStyle("-fx-border-color: transparent");
     }

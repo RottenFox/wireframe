@@ -130,8 +130,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 .tab-pane > .tab-header-area {
     visibility: hidden;
-    max-height: 0;
-    min-height: 0;
+    -fx-tab-min-height: 0;
+    -fx-tab-max-height: 0;
+    -fx-tab-min-width: 0;
+    -fx-tab-max-width: 0;
+}
+.tab-pane {
+ 
+    -fx-tab-min-height: 0;
+    -fx-tab-max-height: 0;
+    -fx-tab-min-width: 0;
+    -fx-tab-max-width: 0;
 }
 .icon-buttons{
      -fx-background-color: #b0adac; /* Dark Navy Color */

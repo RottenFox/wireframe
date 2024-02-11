@@ -14,12 +14,16 @@ import javafx.beans.property.ObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -47,14 +51,20 @@ public class ShowCustomerController implements Initializable {
     @Autowired
     private SharedItemService sharedItemService;
     
-     @Autowired
+    @Autowired
    Cusrep cus;
     
     @FXML
     private Label addAddress;
-
+    
     @FXML
-    private SplitMenuButton addCustomer;
+    private Tab courses,members;
+    
+    @FXML
+    private TabPane customerTabPane;
+    
+    @FXML
+    private SplitMenuButton addCustomer, addCourseButton;
 
     @FXML
     private Label addEmail;
@@ -113,13 +123,42 @@ public class ShowCustomerController implements Initializable {
     @FXML
     private TableColumn<?, ?> type,code;
     
+    @FXML
+    private Button coursesTab,membersTab;
+    
     private FilteredList<AddCustomer> filteredData;
-
+    
+    @FXML
+    void switchToCourses(ActionEvent event) {
+        firstSwitch();    
+    }
+    
+    @FXML
+    void switchToMembers(ActionEvent event) {
+        
+        customerTabPane.getSelectionModel().select(members);
+        coursesTab.setStyle("-fx-border-color: transparent");
+        membersTab.setStyle("-fx-border-color: red");
+    }
+    
+    void firstSwitch(){
+        customerTabPane.getSelectionModel().select(courses);
+        coursesTab.setStyle("-fx-border-color: red");
+        membersTab.setStyle("-fx-border-color: transparent");    
+    }
     @FXML
     void addCustomer(MouseEvent event) {
-{
+    {
         if (dashboardController != null) {
             dashboardController.loadOverlayContent("/fxml/CustomerAdd.fxml");
+        }
+    }
+    }
+    @FXML
+    void addCourse(MouseEvent event) {
+    {
+        if (dashboardController != null) {
+            dashboardController.loadOverlayContent("/fxml/addCourse.fxml");
         }
     }
     }
@@ -177,6 +216,7 @@ public class ShowCustomerController implements Initializable {
         addCustomer.setVisible(false);
     }
     
+    
     @FXML
     void filterdata(KeyEvent event) {
         String filter = searchbar.getText(); 
@@ -197,6 +237,7 @@ public class ShowCustomerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+            firstSwitch();
         customerName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         amount.setCellValueFactory(new PropertyValueFactory<>("Balance"));
         code.setCellValueFactory(new PropertyValueFactory<>("customercode"));
