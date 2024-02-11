@@ -210,7 +210,7 @@ public class DashboardController implements Initializable {
     
     @FXML
     void opensale(MouseEvent event) {
-        loadContent("/fxml/Add_Sale.fxml");
+        loadOverlayContent("/fxml/Add_Sale.fxml");
     }
     
     @FXML

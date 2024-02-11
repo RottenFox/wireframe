@@ -8,9 +8,12 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.control.CheckBox;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -117,6 +120,20 @@ private String customercode;
     
     
     @Transient
+    private final BooleanProperty selected = new SimpleBooleanProperty(false);
+
+    public boolean isSelected() {
+        return selected.get();
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected.set(selected);
+    }
+
+    public BooleanProperty selectedProperty() {
+        return selected;
+    }
+    @Transient
     private final SimpleFloatProperty  Balance = new SimpleFloatProperty();;
    
      {
@@ -127,8 +144,10 @@ private String customercode;
         this.Balance.set(Balance);
         
     }
-    
 
+   
+    
+    
     public Float getBalance() {
          return Optional.ofNullable(getCustomerBalance() - (getPurchaseBalance() + getOpenbalance())).orElse(0f);
     }

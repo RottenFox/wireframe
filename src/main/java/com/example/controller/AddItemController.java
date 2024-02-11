@@ -71,7 +71,7 @@ public class AddItemController implements Initializable {
             purchasePrice,salePrice,wholeSalePrice,wholesaleQty,itemsize,maxstock;
 
     @FXML
-    private Button addImageButton,priceTab,saveandnew,save,selectUnit,stockTab,Update,delete;
+    private Button addImageButton,priceTab,saveandnew,save,selectUnit,stockTab,Update,delete,manufacturing;
     
     @FXML
     private Label ID,additemS;
@@ -87,7 +87,7 @@ public class AddItemController implements Initializable {
     @FXML
     private StackPane stockPane;
     @FXML
-    private Tab stock,price;    
+    private Tab stock,price,manufacturingtab;    
     @FXML
     private TabPane itempane;
     @FXML
@@ -290,6 +290,7 @@ if (items.isPresent() && save.isVisible()) {
            itempane.getSelectionModel().select(price);
         priceTab.setStyle("-fx-border-color: red");
         stockTab.setStyle("-fx-border-color: transparent");
+        manufacturing.setStyle("-fx-border-color: transparent");
     }
 
     @FXML
@@ -298,6 +299,15 @@ if (items.isPresent() && save.isVisible()) {
         itempane.getSelectionModel().select(stock);
            priceTab.setStyle("-fx-border-color: transparent");
         stockTab.setStyle("-fx-border-color: red");
+        manufacturing.setStyle("-fx-border-color: transparent");
+    }
+     @FXML
+    void switchToManufacturing(ActionEvent event) {
+        
+        itempane.getSelectionModel().select(manufacturingtab);
+           priceTab.setStyle("-fx-border-color: transparent");
+        stockTab.setStyle("-fx-border-color: transparent");
+        manufacturing.setStyle("-fx-border-color: red");
     }
 
     @FXML

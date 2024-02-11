@@ -115,8 +115,18 @@ private Float Amount;
 private final FloatProperty qty = new SimpleFloatProperty();
 @Transient
 private int rownumber;
+@Transient
+private List<AddItem> children;
 
+    public List<AddItem> getChildren() {
+        return children;
+    }
 
+    public void setChildren(List<AddItem> children) {
+        this.children = children;
+    }
+
+    
 
 
  // This annotation is used for large objects
