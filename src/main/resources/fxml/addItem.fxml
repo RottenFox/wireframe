@@ -150,7 +150,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="manufacturing" layoutX="136.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToStock" prefHeight="34.0" prefWidth="124.0" styleClass="tabButton" text="Manufacturing">
+                        <Button fx:id="manufacturing" layoutX="136.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToManufacturing" prefHeight="34.0" prefWidth="124.0" styleClass="tabButton" text="Manufacturing">
                            <font>
                               <Font name="Segoe UI Semibold" size="14.0" />
                            </font>
@@ -378,9 +378,9 @@
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
                                 <rowConstraints>
-                                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
@@ -413,17 +413,59 @@
                                           </HBox>
                                        </children>
                                     </VBox>
-                                    <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
-                                      <columns>
-                                        <TableColumn prefWidth="75.0" text="Charges" />
-                                        <TableColumn prefWidth="75.0" text="Estimated Cost" />
-                                      </columns>
-                                       <columnResizePolicy>
-                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                       </columnResizePolicy>
-                                    </TableView>
-                                    <Label prefHeight="18.0" prefWidth="97.0" text="RAW MATERIAL" />
-                                    <Label text="Additional Cost" GridPane.rowIndex="2" />
+                                    <VBox GridPane.columnSpan="2" GridPane.rowIndex="3">
+                                       <children>
+                                          <TableView prefHeight="200.0" prefWidth="200.0">
+                                            <columns>
+                                              <TableColumn prefWidth="75.0" text="Charges" />
+                                              <TableColumn prefWidth="75.0" text="Estimated Cost" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                          <HBox alignment="TOP_RIGHT" maxHeight="70.0" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Total Cost with Raw Material">
+                                                   <HBox.margin>
+                                                      <Insets top="3.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="0.00">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <Label prefHeight="35.0" prefWidth="210.0" text="RAW MATERIAL" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="35.0" prefWidth="174.0" text="Additional Cost" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField maxHeight="40.0" maxWidth="250.0" prefHeight="18.0" prefWidth="250.0" promptText="Enter Raw Material Item">
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <TextField maxWidth="250.0" promptText="Enter Additional Cost " GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                    </TextField>
                                  </children>
                               </GridPane>
                            </content>
