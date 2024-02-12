@@ -507,7 +507,7 @@
                                                 <Insets />
                                              </VBox.margin>
                                           </AnchorPane>
-                                          <TableView fx:id="stocktable11" maxWidth="260.0" onMouseClicked="#showbill" prefHeight="618.0" prefWidth="260.0" styleClass="modern-pane" VBox.vgrow="ALWAYS">
+                                          <TableView fx:id="stocktable11" maxWidth="260.0" onMouseClicked="#showItems" prefHeight="618.0" prefWidth="260.0" styleClass="modern-pane" VBox.vgrow="ALWAYS">
                                              <columns>
                                                 <TableColumn fx:id="code11" editable="false" prefWidth="75.0" text="Itemcode" visible="false" />
                                                 <TableColumn fx:id="name11" editable="false" prefWidth="75.0" text="Category Name" />

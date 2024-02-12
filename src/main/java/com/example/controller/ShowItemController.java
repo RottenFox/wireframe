@@ -151,6 +151,10 @@ public class ShowItemController implements Initializable {
     private TableColumn<items, String> invoice11,itemname11, sp11;
     
     @FXML
+    private void showItems(MouseEvent event){
+        showItem();
+    }
+    @FXML
     void filterdata(KeyEvent event) {
         String filter = searchbar.getText(); 
         if (filter == null || filter.isEmpty()) {
