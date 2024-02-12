@@ -93,8 +93,15 @@ public class ShowCustomerController implements Initializable {
     private TableView<TankData> course;
     
     @FXML
+    private TableView<MemberData> memberbycourse;
+    @FXML
 private TableColumn<TankData, String> coursename;
-
+    @FXML
+private TableColumn<MemberData, String> Mid;
+    @FXML
+private TableColumn<MemberData, String> Mname;
+    @FXML
+private TableColumn<MemberData, Integer> MBalance;
     
     @FXML
     private TableColumn<TankData, Integer> coursemember;
@@ -140,6 +147,7 @@ private TableColumn<TankData, String> coursename;
     private FilteredList<AddCustomer> filteredData;
     
     private ObservableList<TankData> tankDataList;
+    private ObservableList<MemberData> MDataList;
     
     @FXML
     void switchToCourses(ActionEvent event) {
@@ -202,6 +210,10 @@ private TableColumn<TankData, String> coursename;
             
     }
 
+    @FXML
+    void showmembers(MouseEvent event) {
+        member();
+    }
     @FXML
     void showbill(MouseEvent event) {
         searchbar.setVisible(false);
@@ -303,13 +315,31 @@ public void showmember(){
         tankDataList = FXCollections.observableArrayList();
 
         // Add dummy data
-        tankDataList.add(new TankData("Tank1", 5));
-        tankDataList.add(new TankData("Tank2", 8));
+        tankDataList.add(new TankData("Tank1", 3));
+        tankDataList.add(new TankData("Tank2", 3));
         tankDataList.add(new TankData("Tank3", 3));
 
         // Set the data to the TableView
         course.setItems(tankDataList);
-}    
+        
+} 
+
+public void member(){
+    
+        Mid.setCellValueFactory(cellData -> cellData.getValue().getMID());
+        Mname.setCellValueFactory(cellData -> cellData.getValue().getMname());
+        MBalance.setCellValueFactory(cellData -> cellData.getValue().getBalance().asObject());
+        
+        MDataList = FXCollections.observableArrayList();
+
+        // Add dummy data
+        MDataList.add(new MemberData("012","Ibrar", 5));
+        MDataList.add(new MemberData("013","Saeed", 8));
+        MDataList.add(new MemberData("014","Imran", 3));
+
+        // Set the data to the TableView
+        memberbycourse.setItems(MDataList);
+}
 }
 class TankData {
      private final SimpleStringProperty tankName;
@@ -343,5 +373,30 @@ class TankData {
     public SimpleIntegerProperty tankQuantityProperty() {
         return tankQuantity;
     }
+    
+}
+class MemberData{
+     private final SimpleStringProperty MID;
+    private final SimpleStringProperty Mname;
+    private final SimpleIntegerProperty Balance;
+
+    public MemberData(String MID, String Mname, Integer Balance) {
+        this.MID = new SimpleStringProperty(MID);
+        this.Mname = new SimpleStringProperty(Mname);
+        this.Balance = new SimpleIntegerProperty(Balance);
+    }
+
+    public SimpleStringProperty getMID() {
+        return MID;
+    }
+
+    public SimpleStringProperty getMname() {
+        return Mname;
+    }
+
+    public SimpleIntegerProperty getBalance() {
+        return Balance;
+    }
+    
     
 }
