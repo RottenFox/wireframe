@@ -295,7 +295,6 @@ private boolean isChild(Node node, Parent parent) {
 }
 
 public void showmember(){
-    TankData tankData = new TankData("Tank1", 5);
 
     coursename.setCellValueFactory(cellData -> cellData.getValue().tankNameProperty());
         coursemember.setCellValueFactory(cellData -> cellData.getValue().tankQuantityProperty().asObject());
