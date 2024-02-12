@@ -317,7 +317,7 @@
                                     <Insets />
                                  </VBox.margin>
                               </AnchorPane>
-                              <TableView fx:id="course" maxWidth="260.0" onMouseClicked="#showbill" prefHeight="618.0" prefWidth="260.0" styleClass="modern-pane" VBox.vgrow="ALWAYS">
+                              <TableView fx:id="course" maxWidth="260.0" onMouseClicked="#showmembers" prefHeight="618.0" prefWidth="260.0" styleClass="modern-pane" VBox.vgrow="ALWAYS">
                                  <columns>
                                     <TableColumn prefWidth="75.0" text="Code" visible="false" />
                                     <TableColumn fx:id="coursename" editable="false" prefWidth="75.0" text="NAME" />
@@ -478,11 +478,11 @@
                                     </HBox>
                                  </children>
                               </HBox>
-                              <TableView onMouseClicked="#selectinvoice" prefHeight="565.0" styleClass="modern-pane" VBox.vgrow="ALWAYS">
+                              <TableView fx:id="memberbycourse" onMouseClicked="#selectinvoice" prefHeight="565.0" styleClass="modern-pane" VBox.vgrow="ALWAYS">
                                  <columns>
-                                    <TableColumn minWidth="8.0" prefWidth="81.50945687294006" text="ID" />
-                                    <TableColumn minWidth="60.0" prefWidth="352.3018569946289" text="NAME" />
-                                    <TableColumn prefWidth="171.169921875" text="BALANCE" />
+                                    <TableColumn fx:id="Mid" minWidth="8.0" prefWidth="81.50945687294006" text="ID" />
+                                    <TableColumn fx:id="Mname" minWidth="60.0" prefWidth="352.3018569946289" text="NAME" />
+                                    <TableColumn fx:id="MBalance" prefWidth="171.169921875" text="BALANCE" />
                                  </columns>
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
