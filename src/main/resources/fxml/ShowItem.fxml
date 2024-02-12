@@ -450,9 +450,10 @@
                                           </HBox>
                                           <TableView fx:id="invoicetable1" onMouseClicked="#selectinvoice" prefHeight="565.0" prefWidth="738.0" styleClass="modern-pane" VBox.vgrow="ALWAYS">
                                              <columns>
-                                                <TableColumn fx:id="type1" minWidth="8.0" prefWidth="203.7735654115677" text="Item Code" />
-                                                <TableColumn fx:id="invoice1" minWidth="20.0" prefWidth="167.5471954345703" text="Base Unit" />
-                                                <TableColumn fx:id="itemname1" minWidth="60.0" prefWidth="205.58486938476562" text="Derived unit" />
+                                                <TableColumn fx:id="type1" minWidth="8.0" prefWidth="90.56603825092316" text="Item Code" />
+                                                <TableColumn prefWidth="158.4905776977539" text="Item Name" />
+                                                <TableColumn fx:id="invoice1" minWidth="20.0" prefWidth="169.3584747314453" text="Base Unit" />
+                                                <TableColumn fx:id="itemname1" minWidth="60.0" prefWidth="170.26419067382812" text="Derived unit" />
                                                 <TableColumn fx:id="date1" prefWidth="150.339599609375" text="Conversion Rate" />
                                              </columns>
                                              <columnResizePolicy>
@@ -672,9 +673,10 @@
                                           </HBox>
                                           <TableView fx:id="invoicetable11" onMouseClicked="#selectinvoice" prefHeight="565.0" prefWidth="738.0" styleClass="modern-pane" VBox.vgrow="ALWAYS">
                                              <columns>
-                                                <TableColumn fx:id="type11" minWidth="8.0" prefWidth="228.2264462709427" text="Item Code" />
-                                                <TableColumn fx:id="invoice11" minWidth="20.0" prefWidth="241.81129455566406" text="Company" />
-                                                <TableColumn fx:id="itemname11" minWidth="60.0" prefWidth="205.58486938476562" text="Category" />
+                                                <TableColumn fx:id="type11" minWidth="8.0" prefWidth="128.6037656068802" text="Item Code" />
+                                                <TableColumn fx:id="invoice11" minWidth="20.0" prefWidth="243.6225128173828" text="Item Name" />
+                                                <TableColumn fx:id="itemname11" minWidth="60.0" prefWidth="192.90573120117188" text="Company" />
+                                                <TableColumn prefWidth="165.73583984375" text="Sale Price" />
                                              </columns>
                                              <columnResizePolicy>
                                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
