@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -80,7 +82,7 @@ public class ShowItemController implements Initializable {
     private TableColumn<?, ?> itemquantity;
 
     @FXML
-    private TableColumn<?, ?> name;
+    private TableColumn<?,?> name;
 
     @FXML
     private TableColumn<?, ?> price;
@@ -125,7 +127,29 @@ public class ShowItemController implements Initializable {
     
     @FXML
     private TextField searchbar;
-
+    
+    private ObservableList<categoryData> categoryDataList;
+    
+    @FXML
+    private TableView<categoryData> stocktable11;
+    
+    @FXML
+    private TableColumn<categoryData, String> name11;
+    
+    @FXML
+    private TableColumn<categoryData, Integer> quantity11;
+    
+    private ObservableList<items> itemsList;
+    
+    @FXML
+    private TableView<items> invoicetable11;
+    
+    @FXML
+    private TableColumn<items, Integer> type11;
+    
+    @FXML
+    private TableColumn<items, String> invoice11,itemname11, sp11;
+    
     @FXML
     void filterdata(KeyEvent event) {
         String filter = searchbar.getText(); 
@@ -143,8 +167,8 @@ public class ShowItemController implements Initializable {
         }
     }
     
-   @FXML
-void showbill(MouseEvent event) {
+    @FXML
+    void showbill(MouseEvent event) {
     searchbar.setVisible(false);
     AddItem.setVisible(true);
 
@@ -223,6 +247,7 @@ void showbill(MouseEvent event) {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        showmember();
         name.setCellValueFactory(new PropertyValueFactory<>("Productname"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("Stock"));
         code.setCellValueFactory(new PropertyValueFactory<>("Item_code"));
@@ -285,5 +310,139 @@ private boolean isChild(Node node, Parent parent) {
     }
     return false;
 }
+
+public void showmember(){
+
+        name11.setCellValueFactory(cellData -> cellData.getValue().categoryNameProperty());
+        quantity11.setCellValueFactory(cellData -> cellData.getValue().categoryQuantityProperty().asObject());
+
+        // Initialize the data
+        categoryDataList = FXCollections.observableArrayList();
+
+        // Add dummy data
+        categoryDataList.add(new categoryData("Menu 1", 5));
+        categoryDataList.add(new categoryData("Menu 2", 8));
+        categoryDataList.add(new categoryData("Menu 3", 3));
+
+        // Set the data to the TableView
+        stocktable11.setItems(categoryDataList);
+}
+
+public void showItem(){
+    type11.setCellValueFactory(cellData -> cellData.getValue().itemCodeProperty().asObject());
+    invoice11.setCellValueFactory(cellData -> cellData.getValue().itemNameProperty());
+    itemname11.setCellValueFactory(cellData -> cellData.getValue().itemCompanyProperty());
+    sp11.setCellValueFactory(cellData -> cellData.getValue().itemPriceProperty());
+    
+    itemsList= FXCollections.observableArrayList();
+    
+    itemsList.add(new items(011,"Pratha", "Sunridge","50"));
+    itemsList.add(new items(025,"Egg Omlette", "Sb eggs","40"));
+    itemsList.add(new items(024,"Mix tea", "Lipton","60"));
+    itemsList.add(new items(017,"Water bottle 500ml", "Nestle","40"));
+    
+    invoicetable11.setItems(itemsList);
+}
+
+}
+
+class categoryData {
+    private final SimpleStringProperty categoryName;
+    private final SimpleIntegerProperty categoryQuantity;
+
+    public categoryData(String categoryName, int categoryQuantity) {
+        this.categoryName = new SimpleStringProperty(categoryName);
+        this.categoryQuantity = new SimpleIntegerProperty(categoryQuantity);
+    }
+
+    public String getcategoryName() {
+        return categoryName.get();
+    }
+
+    public void setcategoryName(String categoryName) {
+        this.categoryName.set(categoryName);
+    }
+
+    public SimpleStringProperty categoryNameProperty() {
+        return categoryName;
+    }
+
+    public int getcategoryQuantity() {
+        return categoryQuantity.get();
+    }
+
+    public void setcategoryQuantity(int categoryQuantity) {
+        this.categoryQuantity.set(categoryQuantity);
+    }
+
+    public SimpleIntegerProperty categoryQuantityProperty() {
+        return categoryQuantity;
+    }
+    
+}
+
+
+class items{
+    private final SimpleIntegerProperty itemCode;
+    private final SimpleStringProperty itemName;
+    private final SimpleStringProperty itemCompany;
+    private final SimpleStringProperty itemPrice;
+    
+    public items(int itemCode, String itemName, String itemCompany, String itemPrice) {
+        this.itemCode = new SimpleIntegerProperty(itemCode);
+        this.itemName = new SimpleStringProperty(itemName);
+        this.itemCompany = new SimpleStringProperty(itemCompany);
+        this.itemPrice = new SimpleStringProperty(itemPrice);
+    }
+    
+     // Getter methods
+    public int getItemCode() {
+        return itemCode.get();
+    }
+
+    public String getItemName() {
+        return itemName.get();
+    }
+
+    public String getItemCompany() {
+        return itemCompany.get();
+    }
+
+    public String getItemPrice() {
+        return itemPrice.get();
+    }
+
+    // Setter methods
+    public void setItemCode(int code) {
+        itemCode.set(code);
+    }
+
+    public void setItemName(String name) {
+        itemName.set(name);
+    }
+
+    public void setItemCompany(String company) {
+        itemCompany.set(company);
+    }
+
+    public void setItemPrice(String price) {
+        itemPrice.set(price);
+    }
+    
+    public SimpleIntegerProperty itemCodeProperty() {
+        return itemCode;
+    }
+
+    public SimpleStringProperty itemNameProperty() {
+        return itemName;
+    }
+
+    public SimpleStringProperty itemCompanyProperty() {
+        return itemCompany;
+    }
+
+    public SimpleStringProperty itemPriceProperty() {
+        return itemPrice;
+    }
     
 }

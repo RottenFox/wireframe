@@ -511,7 +511,7 @@
                                              <columns>
                                                 <TableColumn fx:id="code11" editable="false" prefWidth="75.0" text="Itemcode" visible="false" />
                                                 <TableColumn fx:id="name11" editable="false" prefWidth="75.0" text="Category Name" />
-                                                <TableColumn fx:id="quantity11" editable="false" minWidth="30.0" prefWidth="75.0" text="Company">
+                                                <TableColumn fx:id="quantity11" editable="false" minWidth="30.0" prefWidth="75.0" text="Items">
                                                    <graphic>
                                                       <MenuButton mnemonicParsing="false">
                                                          <items>
@@ -676,7 +676,7 @@
                                                 <TableColumn fx:id="type11" minWidth="8.0" prefWidth="128.6037656068802" text="Item Code" />
                                                 <TableColumn fx:id="invoice11" minWidth="20.0" prefWidth="243.6225128173828" text="Item Name" />
                                                 <TableColumn fx:id="itemname11" minWidth="60.0" prefWidth="192.90573120117188" text="Company" />
-                                                <TableColumn prefWidth="165.73583984375" text="Sale Price" />
+                                                <TableColumn fx:id="sp11" prefWidth="165.73583984375" text="Sale Price" />
                                              </columns>
                                              <columnResizePolicy>
                                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -735,4 +735,3 @@
    </children>
 
 </GridPane>
-
