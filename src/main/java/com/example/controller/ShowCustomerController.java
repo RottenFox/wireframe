@@ -11,6 +11,8 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -86,7 +88,16 @@ public class ShowCustomerController implements Initializable {
 
     @FXML
     private TableView<AddCustomer> customerTable;
+    
+    @FXML
+    private TableView<TankData> course;
+    
+    @FXML
+private TableColumn<TankData, String> coursename;
 
+    
+    @FXML
+    private TableColumn<TankData, Integer> coursemember;
     @FXML
     private TableColumn<?, ?> date;
 
@@ -127,6 +138,8 @@ public class ShowCustomerController implements Initializable {
     private Button coursesTab,membersTab;
     
     private FilteredList<AddCustomer> filteredData;
+    
+    private ObservableList<TankData> tankDataList;
     
     @FXML
     void switchToCourses(ActionEvent event) {
@@ -238,6 +251,7 @@ public class ShowCustomerController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
             firstSwitch();
+            
         customerName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         amount.setCellValueFactory(new PropertyValueFactory<>("Balance"));
         code.setCellValueFactory(new PropertyValueFactory<>("customercode"));
@@ -258,6 +272,7 @@ public class ShowCustomerController implements Initializable {
         addCustomer.setVisible(true);
     }
 });
+        showmember();
     }  
     
     private boolean isEventTargetExcluded(MouseEvent event) {
@@ -278,5 +293,56 @@ private boolean isChild(Node node, Parent parent) {
     }
     return false;
 }
+
+public void showmember(){
+    TankData tankData = new TankData("Tank1", 5);
+
+    coursename.setCellValueFactory(cellData -> cellData.getValue().tankNameProperty());
+        coursemember.setCellValueFactory(cellData -> cellData.getValue().tankQuantityProperty().asObject());
+
+        // Initialize the data
+        tankDataList = FXCollections.observableArrayList();
+
+        // Add dummy data
+        tankDataList.add(new TankData("Tank1", 5));
+        tankDataList.add(new TankData("Tank2", 8));
+        tankDataList.add(new TankData("Tank3", 3));
+
+        // Set the data to the TableView
+        course.setItems(tankDataList);
+}    
+}
+class TankData {
+     private final SimpleStringProperty tankName;
+    private final SimpleIntegerProperty tankQuantity;
+
+    public TankData(String tankName, int tankQuantity) {
+        this.tankName = new SimpleStringProperty(tankName);
+        this.tankQuantity = new SimpleIntegerProperty(tankQuantity);
+    }
+
+    public String getTankName() {
+        return tankName.get();
+    }
+
+    public void setTankName(String tankName) {
+        this.tankName.set(tankName);
+    }
+
+    public SimpleStringProperty tankNameProperty() {
+        return tankName;
+    }
+
+    public int getTankQuantity() {
+        return tankQuantity.get();
+    }
+
+    public void setTankQuantity(int tankQuantity) {
+        this.tankQuantity.set(tankQuantity);
+    }
+
+    public SimpleIntegerProperty tankQuantityProperty() {
+        return tankQuantity;
+    }
     
 }
