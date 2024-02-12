@@ -33,7 +33,7 @@
                            </HBox.margin>
                         </Label>
                      </children></HBox>
-                  <HBox minHeight="0.0" prefWidth="1000.0" stylesheets="@../looks.css">
+                  <HBox minHeight="0.0" prefWidth="1000.0" stylesheets="@../looks.css" VBox.vgrow="ALWAYS">
                      <children>
                         <HBox maxWidth="260.0" prefWidth="260.0" HBox.hgrow="ALWAYS">
                            <children>
@@ -181,7 +181,7 @@
                                     </VBox>
                                  </children>
                               </HBox>
-                              <VBox prefHeight="634.0" prefWidth="738.0" styleClass="modern-pane" VBox.vgrow="ALWAYS">
+                              <VBox prefWidth="738.0" styleClass="modern-pane" VBox.vgrow="ALWAYS">
                                  <children>
                                     <HBox maxHeight="55.0" minHeight="55.0" prefHeight="55.0" prefWidth="200.0" styleClass="modern-pane" VBox.vgrow="NEVER">
                                        <VBox.margin>
