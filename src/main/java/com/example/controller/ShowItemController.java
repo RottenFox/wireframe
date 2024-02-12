@@ -27,6 +27,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -112,6 +114,14 @@ public class ShowItemController implements Initializable {
    
     private FilteredList<AddItem> filteredData;
     
+    @FXML
+    private Tab categoryTab,unitsTab,itemsTab;
+
+    @FXML
+    private Button categoryTabB,unitTabB,itemsTabB;
+    
+    @FXML
+    private TabPane showItemTabPane;
     
     @FXML
     private TextField searchbar;
@@ -182,7 +192,33 @@ void showbill(MouseEvent event) {
             AddItem.setVisible(true);
     }
 
+    @FXML
+    void switchCategory(ActionEvent event) {
+        showItemTabPane.getSelectionModel().select(categoryTab);
+        categoryTabB.setStyle("-fx-border-color: red");
+        unitTabB.setStyle("-fx-border-color: transparent");
+        itemsTabB.setStyle("-fx-border-color: transparent");
+    }
+
+    @FXML
+    void switchItems(ActionEvent event) {
+        firstSwitch();
+    }
+
+    @FXML
+    void switchUnits(ActionEvent event) {
+        showItemTabPane.getSelectionModel().select(unitsTab);
+        categoryTabB.setStyle("-fx-border-color: transparent");
+        unitTabB.setStyle("-fx-border-color: red");
+        itemsTabB.setStyle("-fx-border-color: transparent");
+    }
     
+    void firstSwitch(){
+        showItemTabPane.getSelectionModel().select(itemsTab);
+        categoryTabB.setStyle("-fx-border-color: transparent");
+        unitTabB.setStyle("-fx-border-color: transparent");
+        itemsTabB.setStyle("-fx-border-color: red");
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -228,7 +264,7 @@ void showbill(MouseEvent event) {
         });
 
 
- 
+       firstSwitch();
     }  
     
     private boolean isEventTargetExcluded(MouseEvent event) {
